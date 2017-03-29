@@ -85,8 +85,8 @@ public class BinaryTree {
             Node node1 = node.get();
             printLowerToHigher(node1.getLeft());
             if (node1.getRight().getValue() <= value) {
-                printLowerToHigher(node1.getRight());
                 System.out.println(node1.getValue());
+                printLowerToHigher(node1.getRight());
             }
 
         }
