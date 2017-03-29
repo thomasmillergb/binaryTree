@@ -79,26 +79,49 @@ public class BinaryTree {
         }
     }
 
+    //    public void printEveryThingbelow(int value) {
+//        Optional<Node> node = printEveryThingbelow(value, head);
+//        if (node.isPresent()) {
+//            Node node1 = node.get();
+//            printLowerToHigher(node1.getLeft());
+//            if (node1.getRight().getValue() <= value) {
+//                System.out.println(node1.getValue());
+//                printLowerToHigher(node1.getRight());
+//            }
+//
+//        }
+//    }
+//
+//    public Optional<Node> printEveryThingbelow(int value, Node currentNode) {
+//        if (currentNode.getValue() <= value) {
+//            return Optional.of(currentNode);
+//        } else if (currentNode.getRight() != null) {
+//            return printEveryThingbelow(value, currentNode.getRight());
+//        } else
+//            return Optional.empty();
+//
+//  }
     public void printEveryThingbelow(int value) {
-        Optional<Node> node = printEveryThingbelow(value, head);
-        if (node.isPresent()) {
-            Node node1 = node.get();
-            printLowerToHigher(node1.getLeft());
-            if (node1.getRight().getValue() <= value) {
-                System.out.println(node1.getValue());
-                printLowerToHigher(node1.getRight());
-            }
+        printEveryThingbelow(value, head);
+    }
 
+    public void printEveryThingbelow(int value, Node currentNode) {
+
+        if (currentNode.getLeft() == null && currentNode.getRight() != null && value > currentNode.getValue()) {
+            System.out.println(currentNode.getValue());
+            if(value > currentNode.getRight().getValue()) {
+                printEveryThingbelow(value, currentNode.getRight());
+            }
+        } else if (currentNode.getLeft() != null) {
+            printEveryThingbelow(value, currentNode.getLeft());
+            if (value > currentNode.getValue()) {
+                System.out.println(currentNode.getValue());
+                if (currentNode.getRight() != null && value > currentNode.getRight().getValue()) {
+                    printEveryThingbelow(value, currentNode.getRight());
+                }
+            }
+        } else if (currentNode.getLeft() == null && currentNode.getRight() == null && value > currentNode.getValue()) {
+            System.out.println(currentNode.getValue());
         }
     }
-
-    public Optional<Node> printEveryThingbelow(int value, Node currentNode) {
-        if (currentNode.getValue() <= value) {
-            return Optional.of(currentNode);
-        } else if (currentNode.getRight() != null) {
-            return printEveryThingbelow(value, currentNode.getRight());
-        } else
-            return Optional.empty();
-    }
-
 }
