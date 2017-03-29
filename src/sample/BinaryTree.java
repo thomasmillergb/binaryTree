@@ -49,8 +49,10 @@ public class BinaryTree {
 
         if (currentNode.getLeft() == null && currentNode.getRight() != null) {
             printLowerToHigher(currentNode.getRight());
+            System.out.println(currentNode.getValue());
         } else if (currentNode.getLeft() != null) {
             printLowerToHigher(currentNode.getLeft());
+            System.out.println(currentNode.getValue());
             if(currentNode.getRight() != null) {
                 printLowerToHigher(currentNode.getRight());
             }
@@ -62,8 +64,10 @@ public class BinaryTree {
 
         if (currentNode.getRight() == null && currentNode.getLeft() != null) {
             printHigherToLower(currentNode.getLeft());
+            System.out.println(currentNode.getValue());
         } else if (currentNode.getRight() != null) {
             printHigherToLower(currentNode.getRight());
+            System.out.println(currentNode.getValue());
             if(currentNode.getLeft() != null) {
                 printHigherToLower(currentNode.getLeft());
             }

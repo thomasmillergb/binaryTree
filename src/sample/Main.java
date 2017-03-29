@@ -9,13 +9,13 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        long limit = 10000000;
-        int high = 900000000;
+        long limit = 10;
+        int high = 100;
         int low = 1;
         int[] ints = new Random().ints(limit, low, high).toArray();
 
         BinaryTree tree = TreeBuilder.createTree(ints);
-        tree.printHigherToLower();
+        tree.printLowerToHigher();
 
     }
 
