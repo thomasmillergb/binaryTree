@@ -16,6 +16,8 @@ public class Main extends Application {
 
         BinaryTree tree = TreeBuilder.createTree(ints);
         tree.printLowerToHigher();
+        System.out.println("----------------");
+        tree.printEveryThingbelow(50);
 
     }
 

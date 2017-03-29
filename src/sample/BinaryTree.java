@@ -1,5 +1,7 @@
 package sample;
 
+import java.util.Optional;
+
 /**
  * Created by alumniCurie09 on 29/03/2017.
  */
@@ -53,13 +55,14 @@ public class BinaryTree {
         } else if (currentNode.getLeft() != null) {
             printLowerToHigher(currentNode.getLeft());
             System.out.println(currentNode.getValue());
-            if(currentNode.getRight() != null) {
+            if (currentNode.getRight() != null) {
                 printLowerToHigher(currentNode.getRight());
             }
         } else if (currentNode.getLeft() == null && currentNode.getRight() == null) {
             System.out.println(currentNode.getValue());
         }
     }
+
     public void printHigherToLower(Node currentNode) {
 
         if (currentNode.getRight() == null && currentNode.getLeft() != null) {
@@ -68,12 +71,34 @@ public class BinaryTree {
         } else if (currentNode.getRight() != null) {
             printHigherToLower(currentNode.getRight());
             System.out.println(currentNode.getValue());
-            if(currentNode.getLeft() != null) {
+            if (currentNode.getLeft() != null) {
                 printHigherToLower(currentNode.getLeft());
             }
         } else if (currentNode.getRight() == null && currentNode.getLeft() == null) {
             System.out.println(currentNode.getValue());
         }
+    }
+
+    public void printEveryThingbelow(int value) {
+        Optional<Node> node = printEveryThingbelow(value, head);
+        if (node.isPresent()) {
+            Node node1 = node.get();
+            printLowerToHigher(node1.getLeft());
+            if (node1.getRight().getValue() <= value) {
+                printLowerToHigher(node1.getRight());
+                System.out.println(node1.getValue());
+            }
+
+        }
+    }
+
+    public Optional<Node> printEveryThingbelow(int value, Node currentNode) {
+        if (currentNode.getValue() <= value) {
+            return Optional.of(currentNode);
+        } else if (currentNode.getRight() != null) {
+            return printEveryThingbelow(value, currentNode.getRight());
+        } else
+            return Optional.empty();
     }
 
 }
