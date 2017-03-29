@@ -9,7 +9,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        long limit = 10;
+        long limit = 10666;
         int high = 100;
         int low = 1;
         int[] ints = new Random().ints(limit, low, high).toArray();

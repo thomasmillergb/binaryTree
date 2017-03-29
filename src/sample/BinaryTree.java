@@ -107,20 +107,20 @@ public class BinaryTree {
 
     public void printEveryThingbelow(int value, Node currentNode) {
 
-        if (currentNode.getLeft() == null && currentNode.getRight() != null && value > currentNode.getValue()) {
+        if (currentNode.getLeft() == null && currentNode.getRight() != null && value >= currentNode.getValue()) {
             System.out.println(currentNode.getValue());
-            if(value > currentNode.getRight().getValue()) {
+            if(value >= currentNode.getRight().getValue()) {
                 printEveryThingbelow(value, currentNode.getRight());
             }
         } else if (currentNode.getLeft() != null) {
             printEveryThingbelow(value, currentNode.getLeft());
             if (value > currentNode.getValue()) {
                 System.out.println(currentNode.getValue());
-                if (currentNode.getRight() != null && value > currentNode.getRight().getValue()) {
+                if (currentNode.getRight() != null && value >= currentNode.getRight().getValue()) {
                     printEveryThingbelow(value, currentNode.getRight());
                 }
             }
-        } else if (currentNode.getLeft() == null && currentNode.getRight() == null && value > currentNode.getValue()) {
+        } else if (currentNode.getLeft() == null && currentNode.getRight() == null && value == currentNode.getValue()) {
             System.out.println(currentNode.getValue());
         }
     }
