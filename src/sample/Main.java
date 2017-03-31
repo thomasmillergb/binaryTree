@@ -2,6 +2,8 @@ package sample;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
+import sample.Search.BrethSearch;
+import sample.Search.Search;
 
 import java.util.Random;
 
@@ -15,9 +17,10 @@ public class Main extends Application {
         int[] ints = new Random().ints(limit, low, high).toArray();
 
         BinaryTree tree = TreeBuilder.createTree(ints);
-        tree.printLowerToHigher();
+        Search search = new BrethSearch();
+        search.excute(tree);
         System.out.println("----------------");
-        tree.printEveryThingbelow(50);
+
 
     }
 

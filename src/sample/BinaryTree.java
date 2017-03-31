@@ -1,7 +1,5 @@
 package sample;
 
-import java.util.Optional;
-
 /**
  * Created by alumniCurie09 on 29/03/2017.
  */
@@ -9,6 +7,10 @@ public class BinaryTree {
     private Node head;
 
     public BinaryTree() {
+    }
+
+    public Node getHead() {
+        return head;
     }
 
     public void addNode(int value) {
